@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  rigs:
+    build: ./
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@127.0.0.1:5432/petroleum
+    container_name: rigs
+
+  db:
+    image: postgres:14
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: dbname
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    container_name: rigs_db
+volumes:
+  postgres_data:

@@ -1,0 +1,10 @@
+asyncpg
+psycopg
+psycopg-binary
+sqlalchemy
+requests
+fastapi
+pydantic
+pydantic-settings
+uvicorn
+pandas
