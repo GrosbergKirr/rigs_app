@@ -8,6 +8,7 @@ from crud.crud import CRUD
 from serialize.schemas import *
 import pandas as pd
 
+
 router = APIRouter(
     prefix="/Rigs",
     tags=["Petroleum"],

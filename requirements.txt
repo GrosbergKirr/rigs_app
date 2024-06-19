@@ -8,3 +8,5 @@ pydantic
 pydantic-settings
 uvicorn
 pandas
+openpyxl
+pandas

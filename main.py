@@ -8,6 +8,7 @@ from router.router import router as rig_routers
 
 
 create_db()
+
 app = FastAPI()
 app.include_router(rig_routers)
 

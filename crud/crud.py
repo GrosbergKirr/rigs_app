@@ -3,8 +3,11 @@ import http
 from fastapi import HTTPException
 
 from models.database import Session
-from models.models import Oil_rigs
+from models.models import Oil_rigs, Location
 from serialize.schemas import *
+
+
+
 
 class CRUD:
 
@@ -55,3 +58,15 @@ class CRUD:
         session.delete(rig_id)
         session.commit()
         return f"Rig {rig_id.id} deleted successfully"
+
+    @classmethod
+    def sidetableinsert(cls):
+        session = Session()
+        for i in range(1, 4):
+            inserted_loc = Location(**{"id": i, "name": f"loc{i}"})
+            inserted_drill = Location(**{"id": i, "name": f"loc{i}"})
+            inserted_en = Location(**{"id": i, "name": f"loc{i}"})
+            session.add(inserted_loc)
+            session.add(inserted_drill)
+            session.add(inserted_en)
+            session.commit()
