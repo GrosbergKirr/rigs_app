@@ -1,0 +1,19 @@
+{"openapi":"3.1.0",
+  "info":{"title":"FastAPI","version":"0.1.0"},
+  "paths":{"/Rigs/create":
+    {"post":{"tags":["Petroleum"],"summary":"Create Rig","operationId":"Create_rig_Rigs_create_post",
+      "parameters":[{"name":"id","in":"query","required":true,"schema":{"type":"integer","title":"Id"}},
+        {"name":"name","in":"query","required":true,"schema":{"type":"string","title":"Name"}},
+        {"name":"location","in":"query","required":true,"schema":{"type":"integer","title":"Location"}},
+        {"name":"height","in":"query","required":true,"schema":{"type":"integer","title":"Height"}},
+        {"name":"diameter","in":"query","required":true,"schema":{"type":"integer","title":"Diameter"}},
+        {"name":"depth","in":"query","required":true,"schema":{"type":"integer","title":"Depth"}},
+        {"name":"drill_type","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},
+          {"type":"null"}],"title":"Drill Type"}},
+        {"name":"energy_type","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},
+          {"type":"null"}],"title":"Energy Type"}}],
+          "responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":
+          {"description":"Validation Error","content":{"application/json":
+          {"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},
+    "/Rigs/get_all":{"get":{"tags":["Petroleum"],"summary":"Get All","operationId":"Get_all_Rigs_get_all_get","responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}}}}},"/Rigs/update_rig":{"post":{"tags":["Petroleum"],"summary":"Update Rig","operationId":"Update_rig_Rigs_update_rig_post","parameters":[{"name":"id","in":"query","required":true,"schema":{"type":"integer","title":"Id"}},{"name":"name","in":"query","required":false,"schema":{"anyOf":[{"type":"string"},{"type":"null"}],"title":"Name"}},{"name":"location","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Location"}},{"name":"height","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Height"}},{"name":"diameter","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Diameter"}},{"name":"depth","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Depth"}},{"name":"drill_type","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Drill Type"}},{"name":"energy_type","in":"query","required":false,"schema":{"anyOf":[{"type":"integer"},{"type":"null"}],"title":"Energy Type"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}},"/Rigs/del_rig":{"post":{"tags":["Petroleum"],"summary":"Del Rig","operationId":"Del_rig_Rigs_del_rig_post","parameters":[{"name":"id","in":"query","required":true,"schema":{"type":"integer","title":"Id"}}],"responses":{"200":{"description":"Successful Response","content":{"application/json":{"schema":{}}}},"422":{"description":"Validation Error","content":{"application/json":{"schema":{"$ref":"#/components/schemas/HTTPValidationError"}}}}}}}},"components":{"schemas":{"HTTPValidationError":{"properties":{"detail":{"items":{"$ref":"#/components/schemas/ValidationError"},"type":"array","title":"Detail"}},"type":"object","title":"HTTPValidationError"},
+  "ValidationError":{"properties":{"loc":{"items":{"anyOf":[{"type":"string"},{"type":"integer"}]},"type":"array","title":"Location"},"msg":{"type":"string","title":"Message"},"type":{"type":"string","title":"Error Type"}},"type":"object","required":["loc","msg","type"],"title":"ValidationError"}}}}

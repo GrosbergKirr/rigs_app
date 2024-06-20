@@ -63,10 +63,14 @@ class CRUD:
     def sidetableinsert(cls):
         session = Session()
         for i in range(1, 4):
-            inserted_loc = Location(**{"id": i, "name": f"loc{i}"})
-            inserted_drill = Location(**{"id": i, "name": f"loc{i}"})
-            inserted_en = Location(**{"id": i, "name": f"loc{i}"})
-            session.add(inserted_loc)
-            session.add(inserted_drill)
-            session.add(inserted_en)
-            session.commit()
+            existing_loc = session.query(Location).filter_by(id=i).first()
+            if existing_loc is None:
+                inserted_loc = Location(**{"id": i, "name": f"loc{i}"})
+                inserted_drill = Location(**{"id": i, "name": f"loc{i}"})
+                inserted_en = Location(**{"id": i, "name": f"loc{i}"})
+                session.add(inserted_loc)
+                session.add(inserted_drill)
+                session.add(inserted_en)
+                session.commit()
+            else:
+                break
