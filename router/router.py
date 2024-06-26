@@ -32,7 +32,7 @@ def Get_all():
 
     df = pd.DataFrame(l)
 
-    df.to_excel("all_rigs.xlsx", index=False)
+    df.to_excel("./data/all_rigs.xlsx", index=True)
     print(df)
     return http.HTTPStatus.OK, res
 

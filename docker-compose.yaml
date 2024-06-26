@@ -8,6 +8,8 @@ services:
       - "80:80"
     depends_on:
       - db
+    volumes:
+      - ./data:/app/data
     environment:
       DATABASE_URL: postgres://postgres:postgres@db:5432/petroleum
     container_name: rigs
